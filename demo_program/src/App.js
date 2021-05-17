@@ -23,8 +23,8 @@ function App() {
     <h1>Hello World!</h1>
     <span className="test_format">Unser erstes React-Frontend!</span>
     <br/><br/><button onClick={testOnClick}>testButton</button>
+    <footer className="mainFooter">©DorfDiskoAEDW</footer>
     </div>
-   
       );
 
       function testOnClick(){
