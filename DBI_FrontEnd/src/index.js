@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import Table from './Components/Table.js';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App/>
+    <Table header="Id,Firstname,Lastname,E-Mail,Orders,Cart,Edit,Delete" headerName="UserList"/>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -24,7 +24,14 @@ header{
 }
 
 table{
-  width: 80%;;
+  width: 80%;
+  border-collapse: collapse;
+}
+
+th{
+  color: #808080;
+  border-bottom: 4pt solid #808080;
+  text-align: left;
 }
 
 td{
@@ -49,9 +56,6 @@ tr{
 .logo{
   display: inline;
   float: left;
-  height: 80%;
-  width: 20%;
- 
 }
 
 .nav li{
@@ -95,12 +99,6 @@ tr{
 
 .tableDiv table{
   border-collapse: collapse;
-}
-
-
-.tableDiv th{
-  color: #808080;
-  border-bottom: 4pt solid #808080;
 }
 
 .roundButton{
