@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Table from './Components/Table.js';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import CustomUserTable from './Components/Table/CustomUserTable';
 
 ReactDOM.render(
   <React.StrictMode>
     <App/>
-    <Table header="Id,Firstname,Lastname,E-Mail,Orders,Cart,Edit,Delete" headerName="UserList"/>
+    <CustomUserTable/>
   </React.StrictMode>,
   document.getElementById('root')
 );

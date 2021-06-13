@@ -109,3 +109,27 @@ tr{
   text-decoration: underline solid #808080;
   text-underline-offset: 5px;
 }
+
+.addButton{
+  background-color: #ffa31a;
+  color: white;
+  border-radius: 40%;
+  width: 100px;
+  height: 60px;
+  position: relative;
+  margin-left: 70%;
+  margin-top: 100px;
+  font-size: 50px;
+}
+
+.container2 h1{
+  color: #ffa31a;
+}
+
+.container2 input{
+  border-radius: 10px;
+  width: 40%;
+  margin-top: 15px;
+  height: 30px;
+  font-size: 15px;
+}
