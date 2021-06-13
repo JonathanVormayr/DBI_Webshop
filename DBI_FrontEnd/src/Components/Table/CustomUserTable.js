@@ -19,44 +19,39 @@ class CustomUserTable extends React.Component{
     }
 
     render(){
-             return <div className="container2">
-             <h1>Users</h1>
-             <table>
-            <th>ID</th>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>E-Mail</th>
-            <th>Cart</th>
-            <th>Orders</th>
-            <th>Edit</th>
-            <th>Delete</th>
-            <tbody>
-            {this.state.products.map(product => {
-                <tr key={product.id}>
-                    <td>{product.id}</td>
-                </tr>
-            })} 
-            </tbody>
-             </table>
-             <button className="addButton">+</button>
-             </div>
+        console.log('render called');
+            return <div className="container2">
+            <h1>Users</h1>
+            <table>
+                <thead>
+                <th>ID</th>
+           <th>Firstname</th>
+           <th>Lastname</th>
+           <th>E-Mail</th>
+           <th>Cart</th>
+           <th>Orders</th>
+           <th>Edit</th>
+           <th>Delete</th>
+                </thead>
+           <tbody>
+               {this.state.products.map(element => {
+                   return <tr>
+                       <td>{element.id}</td>
+                       <td>{element.firstname}</td>
+                       <td>{element.lastname}</td>
+                       <td>{element.email}</td>
+                       <td><button>Cart</button></td>
+                       <td><button>Orders</button></td>
+                       <td><button>Edit</button></td>
+                       <td><button>X</button></td>
+                   </tr>
+                 console.log(element);  
+               })}
+           </tbody>
+            </table>
+            <button className="addButton">+</button>
+            </div>
+        }  
     }
-
-    insertTestData(data){
-        return <tr>
-            <td>data.id</td>
-            <td>data.firstname</td>
-            <td>data.lastname</td>
-            <td>data.email</td>
-            <td><button>Cart</button></td>
-            <td><button>Orders</button></td>
-            <td><button>Edit</button></td>
-            <td><button>X</button></td>
-        </tr>;
-
-    }    
-
-   
-}
 
 export default CustomUserTable;
