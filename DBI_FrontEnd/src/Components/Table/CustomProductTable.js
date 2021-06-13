@@ -2,13 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from '../../App';
 import axios from 'axios';
+import EditProductComponent from '../Edit/EditProductComponent';
+import CustomUserTable from './CustomUserTable';
 import AddProductComponent from '../Add/AddProductComponent';
 class CustomProductTable extends React.Component{
 
     constructor(props){
         super(props);
         this.state = {
-            products:[]
+            products:[],
+            selectedProductId: -1
         }
     }
 
@@ -26,20 +29,16 @@ class CustomProductTable extends React.Component{
                     <th>ID</th>
                     <th>Name</th>
                     <th>Price</th>
-                    <th>CreationDate</th>
-                    <th>Add</th>
                     <th>Edit</th>
                     <th>Delete</th>
                     <tbody>
                     {this.state.products.map(element => {
-                      return <tr>
+                      return <tr key={element.id}>
                        <td>{element.id}</td>
                        <td>{element.productName}</td>
                        <td>{element.productPrice}€</td>
-                       <td>{element.creationdate}</td>
-                       <td><button>Add</button></td>
-                       <td><button>Edit</button></td>
-                       <td><button>X</button></td>
+                       <td><button onClick={this.edit} className={element.id}>Edit</button></td>
+                       <td><button onClick={this.delete} id={element.id}>X</button></td>
                    </tr>
                })}
            </tbody>
@@ -48,14 +47,41 @@ class CustomProductTable extends React.Component{
             </div>
     }
 
-     addClick(data){
-      ReactDOM.render(
+
+    async delete(event){
+        var id = event.target.id;
+        
+       const response = await axios.delete(`http://localhost:8080/products/${id}`);
+       console.log(response.data);  
+       axios.get('http://localhost:8080/products')
+       .then(response => {
+           console.dir(response.data);
+       });
+    }
+
+    edit(event){
+       var id = event.target.className;
+       console.log(id);
+       ReactDOM.render(
         <React.StrictMode>
             <App/>
-            <AddProductComponent/>
+            <EditProductComponent userid={id}/>
         </React.StrictMode>,document.getElementById('root')
       );
     }
-}
 
+    addClick = () =>{
+        ReactDOM.render(
+        <React.StrictMode>
+        <App/>
+        <AddProductComponent/>
+    </React.StrictMode>,document.getElementById('root')
+        );
+    }
+
+    componentDidUpdate(pP,pS,sS){
+        this.componentDidMount();
+    }
+
+}
 export default CustomProductTable;
